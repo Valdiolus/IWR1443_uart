@@ -1,0 +1,74 @@
+
+mmwDemo:/>% ***************************************************************
+Skipped
+
+mmwDemo:/>sensorStop
+Done
+
+mmwDemo:/>flushCfg
+Done
+
+mmwDemo:/>dfeDataOutputMode 1
+Done
+
+mmwDemo:/>channelCfg 15 5 0
+Done
+
+mmwDemo:/>adcCfg 2 1
+Done
+
+mmwDemo:/>adcbufCfg 0 1 0 1
+Done
+
+mmwDemo:/>profileCfg 0 77 88 7 48.98 0 0 30 1 256 6250 0 0 30
+Done
+
+mmwDemo:/>chirpCfg 0 0 0 0 0 0 0 1
+Done
+
+mmwDemo:/>chirpCfg 1 1 0 0 0 0 0 4
+Done
+
+mmwDemo:/>frameCfg 0 1 16 0 200 1 0
+Done
+
+mmwDemo:/>lowPower 0 1
+Done
+
+mmwDemo:/>guiMonitor 1 0 0 0 0 0
+Done
+
+mmwDemo:/>cfarCfg 0 2 8 4 3 0 1280
+Done
+
+mmwDemo:/>peakGrouping 1 1 1 1 229
+Done
+
+mmwDemo:/>multiObjBeamForming 1 0.5
+Done
+
+mmwDemo:/>clutterRemoval 0
+Done
+
+mmwDemo:/>calibDcRangeSig 0 -5 8 256
+Done
+
+mmwDemo:/>compRangeBiasAndRxChanPhase 0.0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+Done
+
+mmwDemo:/>measureRangeBiasAndRxChanPhase 0 1.5 0.2
+Done
+
+mmwDemo:/>CQRxSatMonitor 0 3 4 127 0
+Done
+
+mmwDemo:/>CQSigImgMonitor 0 127 4
+Done
+
+mmwDemo:/>analogMonitor 1 1
+Done
+
+mmwDemo:/>clutterRemoval 1
+Done
+
+q
