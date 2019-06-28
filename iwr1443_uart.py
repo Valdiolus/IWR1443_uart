@@ -13,6 +13,8 @@ INIT_FILE = "iwr1443_init_log_only_range"
 #RS232Tx/RX is for config port
 #AR_mss_logger is for data port
 
+RPI = 1
+
 def find_sublist(sub, bigger):
     if not bigger:
         return -1
@@ -46,15 +48,15 @@ def Radar_INIT(serial):
                 serial.write(line[10:lenght].encode("utf-8")+b'\n')
                 t1 = time.perf_counter()
                 while True:
-                    #res = serial.readline()
-                    #print(res)
-                    #if res == b'Done\n':
-                    #    break
-                    sleep(0.1)
-                    break
-                    #if time.perf_counter() > t1 + 1:  # wait 1 sec
-                    #    serial.write(line[10:lenght].encode("utf-8") + b'\n') #repeat sending
-                    #    t1 = time.perf_counter()
+                    res = serial.readline()
+                    print(res)
+                    if res == b'Done\n':
+                        break
+                    sleep(0.05)
+                    #break
+                    if time.perf_counter() > t1 + 0.3:  # wait 1 sec
+                        serial.write(line[10:lenght].encode("utf-8") + b'\n') #repeat sending
+                        t1 = time.perf_counter()
 
         if line[0] == 'q':
             print("END OF FILE")
@@ -62,6 +64,7 @@ def Radar_INIT(serial):
     log.close()
 
 def Radar_START(serial):
+    sleep(0.1)
     serial.write('sensorStart'.encode("utf-8") + b'\n')
     #while True:
     #    res = serial.readline()
@@ -72,6 +75,7 @@ def Radar_START(serial):
     print("RADAR STARTED")
 
 def Radar_STOP(serial):
+    sleep(0.1)
     serial.write('sensorStop'.encode("utf-8") + b'\n')
     #while True:
     #    res = serial.readline()
@@ -142,7 +146,7 @@ def Radar_READ_DATA(serial):
         res = list(serial.readline())
         lenght = len(res)
         #print("Current:", lenght)
-        print("FRM:", res)
+        #print("FRM:", res)
         hb = find_sublist(MW, res) - 1 #find place of array
         pb = 0
         while pb < lenght:
@@ -190,8 +194,11 @@ def Main():
 
     Radar_INIT(ser)
     Radar_START(ser)
-
-    ser = TTY_INIT("/dev/ttyUSB0", 900000)
+    
+    if RPI == 1:
+        ser = TTY_INIT("/dev/ttyAMA0", 921600)
+    else:
+        ser = TTY_INIT("/dev/ttyUSB0", 921600)
 
     Radar_READ_DATA(ser)
 
