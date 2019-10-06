@@ -208,3 +208,7 @@ def Main():
 
 Main()
 quit()
+
+#add to the end of config file if only dynamic points needed
+#mmwDemo:/>clutterRemoval 1
+#Done
